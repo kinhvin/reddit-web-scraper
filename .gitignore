@@ -1,4 +1,6 @@
 .env
+.venv
+service_account_creds.json
 credentials.json
 token.json
 quickstart.py
