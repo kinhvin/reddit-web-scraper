@@ -63,7 +63,7 @@ df = pd.DataFrame(dataset)
 df = df[["subreddit", "title", "ups", "downs", "num_comments", "url", "author"]]
 
 # Create a local CSV copy of the dataset
-pd.to_csv("reddit_data.csv", index=False)
+df.to_csv("reddit_data.csv", index=False)
 
 # Clear the current sheet and upload the new data to it
 sheet.clear()
