@@ -62,7 +62,10 @@ df = pd.DataFrame(dataset)
 # Only include relevant columns in the dataset
 df = df[["subreddit", "title", "ups", "downs", "num_comments", "url", "author"]]
 
-# Clear the current sheet and upload the new CSV data to it
+# Create a local CSV copy of the dataset
+pd.to_csv("reddit_data.csv", index=False)
+
+# Clear the current sheet and upload the new data to it
 sheet.clear()
 sheet.update([df.columns.values.tolist()] + df.values.tolist())
 print(f"\nData uploaded to Google Sheets at {sheet.url}")
