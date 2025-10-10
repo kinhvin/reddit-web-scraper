@@ -1,7 +1,5 @@
 .env
 .venv
-service_account_creds.json
-credentials.json
-token.json
+*.json
 quickstart.py
 reddit_data.csv
