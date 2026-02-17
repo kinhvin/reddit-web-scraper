@@ -2,14 +2,18 @@ import time
 import httpx
 import pandas as pd
 import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+from pathlib import Path
+from google.oauth2.service_account import Credentials
 
 # Connect to Google Sheets
 scope = ["https://www.googleapis.com/auth/spreadsheets",
          "https://www.googleapis.com/auth/drive"]
 
-# Set up the client
-creds = ServiceAccountCredentials.from_json_keyfile_name("service_account_creds.json", scope)
+# Set up the credentials object
+credentials_path = Path("credentials/service_account_creds.json")
+creds = Credentials.from_service_account_file(str(credentials_path), scopes=scope)
+
+# Authorize with the credentials object
 client = gspread.authorize(creds)
 
 # Open the spreadsheet
